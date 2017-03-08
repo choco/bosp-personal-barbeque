@@ -962,6 +962,12 @@ RTLIB_ExitCode_t BbqueRPC::CGroupCommitAllocation(pRegisteredEXC_t exc)
 
 #else
 
+RTLIB_ExitCode_t BbqueRPC::CGroupCommitAllocation(pRegisteredEXC_t exc)
+{
+	(void) exc;
+	return RTLIB_OK;
+}
+
 RTLIB_ExitCode_t BbqueRPC::CGroupCheckInitialization()
 {
 	return RTLIB_OK;
