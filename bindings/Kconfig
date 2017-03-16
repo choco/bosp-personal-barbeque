@@ -1,0 +1,8 @@
+
+config BBQUE_BINDINGS_PYTHON
+  bool "Python"
+  select EXTERNAL_PYBIND11
+  default n
+  ---help---
+  Build barbeque python module to provide bingings
+
