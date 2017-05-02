@@ -42,6 +42,8 @@ namespace bl = bbque::rtlib;
 #undef  BBQUE_LOG_MODULE
 #define BBQUE_LOG_MODULE "rtl"
 
+static void RTLIB_Exit(void);
+
 /**
  * The global timer, this can be used to get the time since the RTLib has been
  * initialized */
@@ -328,10 +330,10 @@ RTLIB_ExitCode_t RTLIB_Init(const char * name, RTLIB_Services_t ** rtlib)
 	rtlib_initialized = 1;
 	rtlib_app_name = name;
 	(*rtlib) = & rtlib_services;
+	atexit(RTLIB_Exit);
 	return RTLIB_OK;
 }
 
-__attribute__((destructor))
 static void RTLIB_Exit(void)
 {
 	logger = bu::ConsoleLogger::GetInstance(BBQUE_LOG_MODULE);
