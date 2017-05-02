@@ -9,6 +9,9 @@ endif()
 
 add_library(bbque_python_bindings MODULE
   rtlib_python.cc
+  rtlib_enums.cc
+  rtlib_types_wrappers.cc
+  rtlib_bbqueexc.cc
   )
 
 set_target_properties(bbque_python_bindings PROPERTIES
